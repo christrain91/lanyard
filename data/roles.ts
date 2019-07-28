@@ -5,25 +5,25 @@ import { IRole } from '../interfaces/index';
 
 export const DIRECTOR : IRole = {
   title: 'Director',
-  startAtPostition: 140,
+  startAtPostition: 120,
   access: FULL_ACCESS,
   background: BLUE
 }
 export const PARK_RANGER : IRole = {
   title: 'Park Ranger',
-  startAtPostition: 112,
+  startAtPostition: 95,
   access: LEVEL_2,
   background: BLACK
 }
 export const DINOSAUR_EXPERT : IRole = {
   title: 'Dinosaur Expert',
-  startAtPostition: 80,
+  startAtPostition: 60,
   access: LEVEL_4,
   background: GREEN
 }
 export const HEAD_OF_DEVELOPMENT : IRole = {
   title: 'Head of Development',
-  startAtPostition: 30,
+  startAtPostition: 10,
   access: LEVEL_5,
   background: PURPLE
 }
@@ -35,7 +35,7 @@ export const CUSTOMER_SUPPORT : IRole = {
 }
 export const PARK_VISITOR : IRole = {
   title: 'Park Visitor',
-  startAtPostition: 110,
+  startAtPostition: 95,
   access: PARK_ACCESS,
   background: DARK_RED,
   fontColour: ORANGE

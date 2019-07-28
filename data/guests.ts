@@ -414,7 +414,7 @@ const guests : IGuest[] = [
     role: PARK_RANGER
   },
   {
-    firstname: 'Jen',
+    firstname: 'Jenny',
     surname: 'Turner',
     role: PARK_RANGER
   },

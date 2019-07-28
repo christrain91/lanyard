@@ -6,6 +6,8 @@ import { ORANGE, RED, BLACK } from '../data/colours'
 export default function generate (guest: IGuest) {
   let process = gm(400, 560, guest.role.background)
   const path = `./output/${guest.firstname}_${guest.surname}.png`.toLowerCase()
+  const name = `${guest.firstname} ${guest.surname}`
+  const nameSize = name.length > 18 ? 23 : 25
 
   process = drawRectangle({ 
     gm: process, 
@@ -36,7 +38,7 @@ export default function generate (guest: IGuest) {
 
   process = drawText({ 
     gm: process, 
-    text: guest.role.title, 
+    text: guest.role.title.toUpperCase(), 
     position: [guest.role.startAtPostition, 330], 
     font: '/Library/Fonts/AdobeGothicStd-Bold.otf', 
     fontSize: 34, 
@@ -45,10 +47,10 @@ export default function generate (guest: IGuest) {
 
   process = drawText({ 
     gm: process, 
-    text: `${guest.firstname} ${guest.surname}`, 
+    text: name, 
     position: [160, 380], 
     font: '/Library/Fonts/AdobeGothicStd-Bold.otf', 
-    fontSize: 25, 
+    fontSize: nameSize, 
     colour: BLACK 
   })
   
