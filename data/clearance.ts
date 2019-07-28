@@ -1,0 +1,7 @@
+export const FULL_ACCESS = 'Full Access'
+export const LEVEL_1 = 'Level 1 Clearance'
+export const LEVEL_2 = 'Level 2 Clearance'
+export const LEVEL_3 = 'Level 3 Clearance'
+export const LEVEL_4 = 'Level 4 Clearance'
+export const LEVEL_5 = 'Level 5 Clearance'
+export const PARK_ACCESS = 'Access to Park only'

@@ -1,0 +1,18 @@
+{
+  "name": "landyard",
+  "version": "1.0.0",
+  "description": "Lanyard Generator",
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "start:watch": "pm2 start dist/app.js --no-autorestart --watch",
+    "build": "tsc --watch"
+  },
+  "author": "Christopher Train",
+  "license": "ISC",
+  "dependencies": {
+    "@types/gm": "^1.18.3",
+    "font-list": "^1.1.0",
+    "gm": "^1.23.1"
+  }
+}
