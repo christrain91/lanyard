@@ -2,13 +2,36 @@ import gm from 'gm'
 import { IGuest } from '../interfaces/index';
 import { drawText, drawRectangle, placeImage } from '../util/draw'
 import { ORANGE, RED, BLACK } from '../data/colours'
+import { LANYARD } from '../data/dimensions';
 
-export default function generate (guest: IGuest) {
-  let process = gm(400, 560, guest.role.background)
-  const path = `./output/${guest.firstname}_${guest.surname}.png`.toLowerCase()
-  const name = `${guest.firstname} ${guest.surname}`
-  const nameSize = name.length > 18 ? 23 : 25
+export default function generate (guest: IGuest) : Promise<string> {
+  return new Promise((resolve, reject) => {
+    const path = `./output/lanyards/${guest.firstname}_${guest.surname}.png`.toLowerCase()
 
+    const process = drawLanyard(guest)
+  
+    process.write(path, (error : Error) => {
+      if (error) {
+        reject(error)
+      } else {
+        resolve(path)
+      }
+    })
+  })
+
+}
+
+function drawLanyard (guest: IGuest) : gm.State {
+  const [x, y] = LANYARD
+  let process = gm(x, y, guest.department.background)
+
+  process = drawLanyardImages(process)
+  process = drawLanyardText(process, guest)
+
+  return process
+}
+
+function drawLanyardImages (process: gm.State) : gm.State {
   process = drawRectangle({ 
     gm: process, 
     colour: ORANGE, 
@@ -36,13 +59,22 @@ export default function generate (guest: IGuest) {
     size: [226, 82.5]
   })
 
+ 
+
+  return process
+}
+
+function drawLanyardText (process: gm.State, guest: IGuest) : gm.State {
+  const name = `${guest.firstname} ${guest.surname}`
+  const nameSize = name.length > 18 ? 23 : 25
+
   process = drawText({ 
     gm: process, 
-    text: guest.role.title.toUpperCase(), 
-    position: [guest.role.startAtPostition, 330], 
+    text: guest.department.title.toUpperCase(), 
+    position: [guest.department.startAtPostition, 330], 
     font: '/Library/Fonts/AdobeGothicStd-Bold.otf', 
     fontSize: 34, 
-    colour: guest.role.fontColour || RED 
+    colour: guest.department.fontColour || RED 
   })
 
   process = drawText({ 
@@ -56,10 +88,10 @@ export default function generate (guest: IGuest) {
   
   process = drawText({ 
     gm: process, 
-    text: guest.role.access, 
+    text: guest.job, 
     position: [160, 410], 
     font: '/Library/Fonts/AdobeGothicStd-Bold.otf', 
-    fontSize: 25, 
+    fontSize: 14, 
     colour: RED 
   })
 
@@ -72,13 +104,6 @@ export default function generate (guest: IGuest) {
     colour: ORANGE
   })
 
-  console.log('Processing: ', path)
-  return process.write(path, (err : Error) => {
-    if (err) {
-      console.error(err)
-    } else {
-      console.log('Generated: ', path)
-    }
-  })
+  return process
 }
   

@@ -1,12 +1,12 @@
 export interface IGuest {
   firstname: string,
   surname: string,
-  role: IRole
+  department: IDepartment, 
+  job: string
 }
 
-export interface IRole {
+export interface IDepartment {
   title: string,
-  access: string,
   background: string,
   startAtPostition: number
   fontColour?: string
