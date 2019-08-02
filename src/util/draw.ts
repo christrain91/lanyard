@@ -7,10 +7,10 @@ export function drawText ({ gm, text, position, font, fontSize, colour }: { gm: 
   .drawText(x, y, text)
 }
 
-export function placeImage ({ gm, filename, position, size }: { gm: State; filename: string; position: number[]; size: number[]; }) : State {
+export function placeImage ({ gm, filename, position, size, path }: { gm: State; filename?: string; path?: string; position: number[]; size: number[]; }) : State {
   const positionAsString = position.toString()
   const sizeAsString = size.toString()
-  const imagePath = `${process.cwd()}/assets/${filename}`
+  const imagePath = path ? path : `${process.cwd()}/assets/${filename}`
 
   return gm.draw(`image Over ${positionAsString} ${sizeAsString} ${imagePath}`)
 }

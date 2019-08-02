@@ -6,7 +6,7 @@ import { LANYARD } from '../data/dimensions';
 
 export default function generate (guest: IGuest) : Promise<string> {
   return new Promise((resolve, reject) => {
-    const path = `./output/lanyards/${guest.firstname}_${guest.surname}.png`.toLowerCase()
+    const path = `./output/lanyards/${guest.surname}_${guest.firstname}.png`.toLowerCase()
 
     const process = drawLanyard(guest)
   
