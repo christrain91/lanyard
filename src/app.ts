@@ -1,6 +1,6 @@
 
 import generateLanyard from './generate/lanyard';
-import guests from './data/guests';
+import guests from './data/staff';
 import generatePages from './generate/pages'
 import generateCode from './generate/code'
 import generateBack from './generate/back'

@@ -1,16 +1,16 @@
 import gm from 'gm'
-import { IGuest } from '../interfaces/index'
+import { StaffMember } from '../definitions/index'
 import { placeImage, drawText, drawRectangle } from '../util/draw'
 import { LANYARD } from '../data/dimensions'
-import { ORANGE, BLACK } from '../data/colours';
+import { JP_YELLOW, BLACK } from '../data/colours'
 
-export default function generate (guest: IGuest) : Promise<string> {
+export default function generate(guest: StaffMember): Promise<string> {
   return new Promise((resolve, reject) => {
     const path = `./output/backs/${guest.surname}_${guest.firstname}.png`.toLowerCase()
 
     const process = drawBack(guest)
-  
-    process.write(path, (error : Error) => {
+
+    process.write(path, (error: Error) => {
       if (error) {
         reject(error)
       } else {
@@ -18,39 +18,40 @@ export default function generate (guest: IGuest) : Promise<string> {
       }
     })
   })
-
 }
 
-function drawBack (guest: IGuest) : gm.State {
+function drawBack(staffMember: StaffMember): gm.State {
   const [x, y] = LANYARD
-  let back = gm(x, y, guest.department.background)
+  let back = gm(x, y, staffMember.job.department.background)
 
-  drawRectangle({ 
-    gm: back, 
-    colour: ORANGE, 
-    dimensions: [0, 100, 400, 520] 
+  drawRectangle({
+    gm: back,
+    colour: JP_YELLOW,
+    dimensions: [0, 130, 400, 520]
   })
 
   placeImage({
     gm: back,
-    path: `${process.cwd()}/output/codes/${guest.surname}_${guest.firstname}.png`,
-    position: [50, 140],
-    size: [300, 300]
+    path: `${process.cwd()}/output/codes/${staffMember.surname}_${
+      staffMember.firstname
+    }.png`,
+    position: [100, 140],
+    size: [200, 200]
   })
 
   placeImage({
     gm: back,
     filename: 'JPLogo.png',
-    position: [135, 0],
-    size: [440 / 3.5, 330 / 3.5]
+    position: [115, 0],
+    size: [440 / 2.5, 330 / 2.5]
   })
 
   drawText({
     gm: back,
     text: 'Scan QR code to view your online profile',
-    position: [30, 476],
+    position: [45, 365],
     font: '/System/Library/Fonts/SFCompactDisplay-Regular.otf',
-    fontSize: 20,
+    fontSize: 18,
     colour: BLACK
   })
 

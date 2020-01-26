@@ -2,9 +2,9 @@ import fs from  'fs'
 import path from 'path'
 import gm from 'gm'
 import { chunk, times } from 'lodash'
-import { WHITE } from '../data/colours'
+import { WHITE, BLACK } from '../data/colours'
 import { PAGE, LANYARD } from '../data/dimensions';
-import { placeImage } from '../util/draw'
+import { placeImage, drawText } from '../util/draw'
 
 
 export default async function generate () : Promise<string[]> {
@@ -14,7 +14,7 @@ export default async function generate () : Promise<string[]> {
 
   const pageFileSets = chunk(lanyards,  positions.length)
   return Promise.all(pageFileSets.map((pageFileSet, index) => {
-    return generateSinglePage(`page ${index + 1}`, pageFileSet, positions)
+    return generateSinglePage(`Page ${index + 1} of ${pageFileSets.length}`, pageFileSet, positions)
   }))
 }
 
@@ -45,6 +45,15 @@ function generateSinglePage(name: string, lanyards: { front: string, back: strin
     })
 
     process.rotate(WHITE, 90)
+
+    drawText({
+      gm: process,
+      text: name,
+      position: [h - 40, w - 40],
+      font: '/System/Library/Fonts/SFCompactDisplay-Regular.otf',
+      fontSize: 12,
+      colour: BLACK
+    })
 
     process.write(path, (error : Error) => {
       if (error) {
