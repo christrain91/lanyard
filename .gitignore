@@ -1,3 +1,4 @@
 dist
 *.png
+*.pdf
 node_modules
