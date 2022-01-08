@@ -6,13 +6,17 @@ import { LANYARD } from '../data/dimensions'
 import Color from 'color'
 import _ from 'lodash'
 
+const fontDirectory = '/Users/christrain/Library/Fonts'
+
 export default function generate(staffMember: StaffMember): Promise<string> {
   return new Promise((resolve, reject) => {
-    const path = `./output/lanyards/${staffMember.surname}_${staffMember.firstname}.png`.toLowerCase()
+    const path = `${process.cwd()}/output/lanyards/${staffMember.surname}_${
+      staffMember.firstname
+    }.png`.toLowerCase()
 
-    const process = drawLanyard(staffMember)
+    const gm = drawLanyard(staffMember)
 
-    process.write(path, (error: Error) => {
+    gm.write(path, (error: Error) => {
       if (error) {
         reject(error)
       } else {
@@ -36,28 +40,28 @@ function drawLanyardImages(process: gm.State): gm.State {
   process = drawRectangle({
     gm: process,
     colour: JP_YELLOW,
-    dimensions: [0, 350, 400, 520]
+    dimensions: [0, 350, 400, 530],
   })
 
   process = placeImage({
     gm: process,
     filename: 'ingen.png',
     position: [10, 360],
-    size: [137, 137]
+    size: [137, 137],
   })
 
   process = placeImage({
     gm: process,
     filename: 'JPLogo.png',
     position: [-20, -20],
-    size: [440, 330]
+    size: [440, 330],
   })
 
   process = placeImage({
     gm: process,
     filename: 'barcode.png',
     position: [160, 430],
-    size: [226, 82.5]
+    size: [226, 82.5],
   })
 
   return process
@@ -79,37 +83,37 @@ function drawLanyardText(
     gm: process,
     text: staffMember.job.department.title.toUpperCase(),
     position: [staffMember.job.department.startAtPosition, 330],
-    font: '/Library/Fonts/AdobeGothicStd-Bold.otf',
+    font: `${fontDirectory}/AdobeGothicStd-Bold.otf`,
     fontSize: 34,
     colour:
-      staffMember.job.department.textColour || (bgIsRed ? JP_YELLOW : JP_RED)
+      staffMember.job.department.textColour || (bgIsRed ? JP_YELLOW : JP_RED),
   })
 
   process = drawText({
     gm: process,
     text: name,
     position: [160, 382],
-    font: '/Library/Fonts/AdobeGothicStd-Bold.otf',
+    font: `${fontDirectory}/AdobeGothicStd-Bold.otf`,
     fontSize: nameSize,
-    colour: BLACK
+    colour: BLACK,
   })
 
   process = drawText({
     gm: process,
     text: staffMember.job.title,
     position: [160, 413],
-    font: '/Library/Fonts/AdobeGothicStd-Bold.otf',
+    font: `${fontDirectory}/AdobeGothicStd-Bold.otf`,
     fontSize: jobSize,
-    colour: JP_RED
+    colour: JP_RED,
   })
 
   process = drawText({
     gm: process,
     text: 'THIS PASS IS NOT TRANSFERABLE',
-    position: [44, 546],
-    font: '/System/Library/Fonts/SFCompactDisplay-Regular.otf',
-    fontSize: 22,
-    colour: bgBright ? BLACK : JP_YELLOW
+    position: [47, 556],
+    font: `${fontDirectory}/FontsFree-Net-SFCompactDisplay-Regular.ttf`,
+    fontSize: 20,
+    colour: bgBright ? BLACK : JP_YELLOW,
   })
 
   return process
@@ -120,28 +124,28 @@ function getFontSize(length: number): number {
     {
       from: -Infinity,
       to: 8,
-      size: 25
+      size: 25,
     },
     {
       from: 9,
       to: 15,
-      size: 22
+      size: 22,
     },
     {
       from: 16,
       to: 22,
-      size: 20
+      size: 20,
     },
     {
       from: 23,
       to: 26,
-      size: 18
+      size: 18,
     },
     {
       from: 27,
       to: Infinity,
-      size: 16
-    }
+      size: 16,
+    },
   ]
 
   const matchingSize = _.find(sizeDefinitions, ({ from, to }) => {

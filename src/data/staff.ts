@@ -35,489 +35,480 @@ import {
   SYSTEMS_DATABASE_ENGINEER,
   RC_TECHNICIAN,
   DIRECTOR_OF_OPERATIONS,
-  HEAD_SOFTWARE_DEVELOPMENT
+  HEAD_SOFTWARE_DEVELOPMENT,
 } from './jobs'
 
 const guests: StaffMember[] = [
   {
     firstname: 'Christopher',
     surname: 'Train',
-    job: OWNER
+    job: OWNER,
   },
   {
     firstname: 'Jessica',
     surname: 'Train',
-    job: OWNER
+    job: OWNER,
   },
   {
     firstname: 'Lara',
     surname: 'Train',
-    job: OWNER
+    job: OWNER,
   },
   {
     firstname: 'James',
     surname: 'Allcock',
-    job: MECHANIC
-  },
-  {
-    firstname: 'Emily',
-    surname: 'Blakemore',
-    job: ANIMAL_SPECIALIST
-  },
-  {
-    firstname: 'Paul',
-    surname: 'Blakemore',
-    job: SYSTEMS_SECURITY_ADMIN
-  },
-  {
-    firstname: 'Riley',
-    surname: 'Blakemore',
-    job: HERB_HELPER
+    job: MECHANIC,
   },
   {
     firstname: 'George',
     surname: 'Bridges',
-    job: HERB_HELPER
+    job: HERB_HELPER,
   },
   {
     firstname: 'Harry',
     surname: 'Bridges',
-    job: HERB_HELPER
+    job: HERB_HELPER,
   },
   {
     firstname: 'Jay',
     surname: 'Bridges',
-    job: HEAD_OF_SECURITY
+    job: HEAD_OF_SECURITY,
   },
   {
     firstname: 'Louise',
     surname: 'Bridges',
-    job: BIOCHEMIST
+    job: BIOCHEMIST,
   },
   {
     firstname: 'Toni',
-    surname: 'Cave',
-    job: ETHOLOGIST
+    surname: 'Priest',
+    job: ETHOLOGIST,
   },
   {
     firstname: 'Jon',
     surname: 'Chadwick',
     job: ZOO_KEEPER,
-    customAvatarUrl: '/staff/jon_chadwick.gif'
+    customAvatarUrl: '/staff/jon_chadwick.gif',
   },
   {
     firstname: 'Pauline',
     surname: 'Chadwick',
-    job: ETHOLOGIST
+    job: ETHOLOGIST,
   },
   {
     firstname: 'Jamie',
     surname: 'Channings',
-    job: EXTERMINATOR
+    job: EXTERMINATOR,
+  },
+  {
+    firstname: 'Kerry',
+    surname: 'Clewes',
+    job: CLINICAL_GENETICIST,
   },
   {
     firstname: 'Dominic',
     surname: 'Clifford',
-    job: SOFTWARE_ENGINEER
+    job: SOFTWARE_ENGINEER,
   },
   {
     firstname: 'Jennie',
-    surname: 'Collins',
-    job: CLINICAL_GENETICIST
+    surname: 'Maguire',
+    job: CLINICAL_GENETICIST,
   },
   {
     firstname: 'Kayley',
     surname: 'Cotterill',
-    job: PALEONTOLOGIST
+    job: PALEONTOLOGIST,
   },
   {
     firstname: 'Maria',
     surname: 'Dagleri',
-    job: EMBRYOLOGIST
+    job: EMBRYOLOGIST,
   },
   {
     firstname: 'Seamus',
     surname: 'Delaney',
-    job: HERB_HELPER
+    job: HERB_HELPER,
   },
   {
     firstname: 'Jayde',
     surname: 'Edmunds',
-    job: VET_SUR
+    job: VET_SUR,
   },
   {
     firstname: 'Kayleigh',
     surname: 'Edmunds',
-    job: BIOCHEMIST
+    job: BIOCHEMIST,
   },
   {
     firstname: 'Charlie',
     surname: 'Evans',
-    job: RAPTOR_WRANGLER
+    job: RAPTOR_WRANGLER,
   },
   {
     firstname: 'Freddie',
     surname: 'Fenwick',
-    job: HERB_HELPER
+    job: HERB_HELPER,
   },
   {
     firstname: 'Glen',
     surname: 'Fenwick',
-    job: DIRECTOR_OF_SECURITY
+    job: DIRECTOR_OF_SECURITY,
   },
   {
     firstname: 'Jackie',
     surname: 'Fenwick',
-    job: ZOO_KEEPER
+    job: ZOO_KEEPER,
   },
   {
     firstname: 'Karen',
     surname: 'Fenwick',
-    job: DIRECTOR_OF_FINANCE
+    job: DIRECTOR_OF_FINANCE,
   },
   {
     firstname: 'Lee',
     surname: 'Fenwick',
-    job: HEAD_OF_NETWORK_SUPPORT
+    job: DIRECTOR_OF_PUBLIC_RELATIONS,
   },
   {
     firstname: 'Stavros',
     surname: 'Fountoulakis',
     nicknames: ['Stavvy'],
-    job: DIRECTOR_OF_ENGINEERING
+    job: DIRECTOR_OF_ENGINEERING,
   },
   {
     firstname: 'Hannah',
     surname: 'Francis',
-    job: PALEONTOLOGIST
+    job: PALEONTOLOGIST,
   },
   {
     firstname: 'Megan',
     surname: 'Goodwin',
-    job: ETHOLOGIST
+    job: ETHOLOGIST,
   },
   {
     firstname: 'Josie',
     surname: 'Gotch',
-    job: ETHOLOGIST
-  },
-  {
-    firstname: 'Carole',
-    surname: 'Hale',
-    job: DIRECTOR_OF_PUBLIC_RELATIONS
+    job: ETHOLOGIST,
   },
   {
     firstname: 'Belinda',
     surname: 'Harris',
-    job: EMBRYOLOGIST
+    job: EMBRYOLOGIST,
   },
   {
     firstname: 'Caroline',
     surname: 'Harris',
     nicknames: ['Cas', 'Caz'],
-    job: TOUR_GUIDE
+    job: TOUR_GUIDE,
   },
   {
     firstname: 'Jayden',
     surname: 'Harris',
-    job: WORK_EXPERIENCE
+    job: WORK_EXPERIENCE,
   },
   {
     firstname: 'Laila',
     surname: 'Harris',
-    job: WORK_EXPERIENCE
+    job: WORK_EXPERIENCE,
   },
   {
     firstname: 'Lisa',
     surname: 'Harris',
-    job: BIOCHEMIST
+    job: BIOCHEMIST,
   },
   {
     firstname: 'Luke',
     surname: 'Harris',
-    job: PALEONTOLOGIST
+    job: PALEONTOLOGIST,
   },
   {
     firstname: 'Paul',
     surname: 'Harris',
-    job: MECHANIC
+    job: MECHANIC,
   },
   {
     firstname: 'Ian',
     surname: 'Hubbard-Harris',
-    job: VET_SUR
+    job: VET_SUR,
   },
   {
     firstname: 'Richard',
     surname: 'Hubbard-Harris',
-    job: CLINICAL_GENETICIST
+    job: CLINICAL_GENETICIST,
   },
   {
     firstname: 'Adam',
     surname: 'Jones',
-    job: MECHANIC
+    job: MECHANIC,
   },
   {
     firstname: 'Dave',
     surname: 'Jones',
-    job: HEAD_OF_ACCOMODATION
+    job: HEAD_OF_ACCOMODATION,
   },
   {
     firstname: 'Gareth',
     surname: 'Jones',
     nicknames: ['Gaz'],
-    job: PILOT
+    job: PILOT,
   },
   {
     firstname: 'Hayden',
     surname: 'Jones',
-    job: TOUR_GUIDE
+    job: TOUR_GUIDE,
   },
   {
     firstname: 'Jaxon',
     surname: 'Jones',
-    job: HERB_HELPER
+    job: HERB_HELPER,
   },
   {
     firstname: 'Suraiya',
     surname: 'Jones',
-    job: HERB_HELPER
+    job: HERB_HELPER,
   },
   {
     firstname: 'Jeni',
     surname: 'Jones',
-    job: EMBRYOLOGIST
+    job: EMBRYOLOGIST,
   },
   {
     firstname: 'Marc',
     surname: 'Jones',
-    job: WEAPONS_SPECIALIST
+    job: WEAPONS_SPECIALIST,
   },
   {
     firstname: 'Robert',
     surname: 'Jones',
-    job: ETHOLOGIST
+    job: ETHOLOGIST,
   },
   {
     firstname: 'Sue',
     surname: 'Jones',
-    job: TOUR_GUIDE
+    job: TOUR_GUIDE,
   },
   {
     firstname: 'Tim',
     surname: 'Jones',
-    job: RAPTOR_WRANGLER
+    job: RAPTOR_WRANGLER,
   },
   {
     firstname: 'Thomas',
     nicknames: ['Tom', 'Willy', 'Willie', 'William'],
     surname: 'Kilgallon',
-    job: HEAD_SOFTWARE_DEVELOPMENT
+    job: HEAD_SOFTWARE_DEVELOPMENT,
   },
   {
     firstname: 'Josh',
     surname: 'Maguire',
-    job: EXTERMINATOR
+    job: EXTERMINATOR,
   },
   {
     firstname: 'Lauren',
     nicknames: ['Loz'],
     surname: 'Mansell',
-    job: VET_SUR
+    job: VET_SUR,
   },
   {
     firstname: 'Matt',
     surname: 'Mansell',
-    job: RAPTOR_WRANGLER
+    job: RAPTOR_WRANGLER,
   },
   {
     firstname: 'Wal',
     surname: 'Mansell',
-    job: MECHANIC
+    job: HEAD_OF_NETWORK_SUPPORT,
   },
   {
     firstname: 'Chris',
     surname: 'Oryan',
-    job: SECURITY_OFFICER
+    job: SECURITY_OFFICER,
   },
   {
     firstname: 'Marvin',
     surname: 'Palmer',
-    job: RAPTOR_WRANGLER
+    job: RAPTOR_WRANGLER,
   },
   {
     firstname: 'Aiden',
     surname: 'Priest',
-    job: WORK_EXPERIENCE
+    job: WORK_EXPERIENCE,
   },
   {
     firstname: 'Ashley',
     surname: 'Priest',
-    job: MARKSMAN
+    job: MARKSMAN,
   },
   {
     firstname: 'Diane',
     surname: 'Priest',
-    job: TOUR_GUIDE
+    job: TOUR_GUIDE,
   },
   {
     firstname: 'Finley',
     surname: 'Priest',
-    job: HERB_HELPER
+    job: HERB_HELPER,
   },
   {
     firstname: 'Gary',
     surname: 'Priest',
-    job: ZOO_KEEPER
+    job: ZOO_KEEPER,
   },
   {
     firstname: 'Nichola',
     surname: 'Priest',
-    job: TOUR_GUIDE
+    job: TOUR_GUIDE,
   },
   {
     firstname: 'Calvin',
     surname: 'Randle',
-    job: HERB_SPECIALIST
+    job: HERB_SPECIALIST,
   },
   {
     firstname: 'Nikki',
     surname: 'Randle',
-    job: ZOO_KEEPER
+    job: ZOO_KEEPER,
   },
   {
     firstname: 'Danni',
     surname: 'Richards',
-    job: VET_SUR
+    job: VET_SUR,
   },
   {
     firstname: 'Joshua',
     surname: 'Richardson',
-    job: SECURITY_OFFICER
+    job: SECURITY_OFFICER,
   },
   {
     firstname: 'Ping',
     surname: 'Sam',
-    job: SOFTWARE_ENGINEER
+    job: SOFTWARE_ENGINEER,
   },
   {
     firstname: 'Alison',
     surname: 'Seawright',
     nicknames: ['Yoda', 'Hummus'],
-    job: HEAD_OF_MICROBIOLOGY
+    job: HEAD_OF_MICROBIOLOGY,
   },
   {
     firstname: 'Chris',
     surname: 'Shone',
-    job: CLINICAL_GENETICIST
+    job: CLINICAL_GENETICIST,
   },
   {
     firstname: 'Andy',
     surname: 'Sutherland',
     nicknames: ['Suthy', 'Baby'],
-    job: SYSTEMS_DATABASE_ENGINEER
+    job: SYSTEMS_DATABASE_ENGINEER,
   },
   {
     firstname: 'Lia',
     surname: 'Sutherland',
-    job: WORK_EXPERIENCE
-  },
-  {
-    firstname: 'Sarah',
-    surname: 'Sutherland',
-    job: ZOO_KEEPER
-  },
-  {
-    firstname: 'Chris',
-    surname: 'Taylor',
-    job: MECHANIC
+    job: HERB_HELPER,
   },
   {
     firstname: 'Jordan',
     surname: 'Taylor',
-    job: SECURITY_OFFICER
+    job: SECURITY_OFFICER,
   },
   {
     firstname: 'Derek',
     surname: 'Train',
-    job: DIRECTOR_OF_LOGISTICS
+    job: DIRECTOR_OF_LOGISTICS,
   },
   {
     firstname: 'Martin',
     surname: 'Train',
-    job: HERB_SPECIALIST
+    job: HERB_SPECIALIST,
   },
   {
     firstname: 'Simon',
     surname: 'Train',
-    job: ZOO_KEEPER
+    job: ZOO_KEEPER,
   },
   {
     firstname: 'Amy',
     surname: 'Turner',
-    job: VET_ASS
+    job: VET_ASS,
   },
   {
     firstname: 'Becki',
     surname: 'Turner',
-    job: TOUR_GUIDE
+    job: TOUR_GUIDE,
   },
   {
     firstname: 'Dave',
     surname: 'Turner',
-    job: SECURITY_OFFICER
+    job: SECURITY_OFFICER,
   },
   {
     firstname: 'Jenny',
     surname: 'Turner',
-    job: TOUR_GUIDE
+    job: TOUR_GUIDE,
   },
   {
     firstname: 'Joshua',
     surname: 'Turner',
     nicknames: ['Joshy'],
-    job: HERB_HELPER
+    job: HERB_HELPER,
   },
   {
     firstname: 'Tommy',
     surname: 'Turner',
-    job: HERB_HELPER
-  },
-  {
-    firstname: 'Ben',
-    surname: 'Ward',
-    job: RC_TECHNICIAN
+    job: HERB_HELPER,
   },
   {
     firstname: 'Alex',
     surname: 'Warner',
-    job: BIOCHEMIST
+    job: BIOCHEMIST,
   },
   {
     firstname: 'Gemma',
     surname: 'Warner',
-    job: EMBRYOLOGIST
+    job: EMBRYOLOGIST,
   },
   {
     firstname: 'Amy',
     surname: 'Wirtz',
-    job: VET_SUR
+    job: VET_SUR,
   },
   {
     firstname: 'Katie',
     surname: 'Wood',
-    job: DIRECTOR_OF_OPERATIONS
+    job: DIRECTOR_OF_OPERATIONS,
   },
   {
     firstname: 'Tasnim',
     surname: 'Zaman',
-    job: EMBRYOLOGIST
+    job: EMBRYOLOGIST,
   },
   {
     firstname: 'Saisha',
     surname: 'Parker',
-    job: EMBRYOLOGIST
-  }
+    job: EMBRYOLOGIST,
+  },
+  {
+    firstname: 'Lucy',
+    surname: 'Cooper',
+    job: ANIMAL_SPECIALIST,
+  },
+  {
+    firstname: 'Elsie',
+    surname: 'Robinson',
+    job: HERB_HELPER,
+  },
+  {
+    firstname: 'Alex',
+    surname: 'Robinson',
+    job: SYSTEMS_SECURITY_ADMIN,
+  },
+  {
+    firstname: 'Luke',
+    surname: 'Savin',
+    nicknames: ['Connor', 'McGregor'],
+    job: RC_TECHNICIAN,
+  },
 ]
 
 export default guests
