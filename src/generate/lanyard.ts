@@ -5,14 +5,12 @@ import { JP_YELLOW, JP_RED, BLACK } from '../data/colours'
 import { LANYARD } from '../data/dimensions'
 import Color from 'color'
 import _ from 'lodash'
-
-const fontDirectory = '/Users/christrain/Library/Fonts'
+import { LANYARD_DIR, FONTS_DIR } from '../constants/directories'
 
 export default function generate(staffMember: StaffMember): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const path = `${process.cwd()}/output/lanyards/${staffMember.surname}_${
-      staffMember.firstname
-    }.png`.toLowerCase()
+  return new Promise(async (resolve, reject) => {
+    const path =
+      `${LANYARD_DIR}/${staffMember.surname}_${staffMember.firstname}.png`.toLowerCase()
 
     const gm = drawLanyard(staffMember)
 
@@ -83,7 +81,7 @@ function drawLanyardText(
     gm: process,
     text: staffMember.job.department.title.toUpperCase(),
     position: [staffMember.job.department.startAtPosition, 330],
-    font: `${fontDirectory}/AdobeGothicStd-Bold.otf`,
+    font: `${FONTS_DIR}/AdobeGothicStd-Bold.otf`,
     fontSize: 34,
     colour:
       staffMember.job.department.textColour || (bgIsRed ? JP_YELLOW : JP_RED),
@@ -93,7 +91,7 @@ function drawLanyardText(
     gm: process,
     text: name,
     position: [160, 382],
-    font: `${fontDirectory}/AdobeGothicStd-Bold.otf`,
+    font: `${FONTS_DIR}/AdobeGothicStd-Bold.otf`,
     fontSize: nameSize,
     colour: BLACK,
   })
@@ -102,7 +100,7 @@ function drawLanyardText(
     gm: process,
     text: staffMember.job.title,
     position: [160, 413],
-    font: `${fontDirectory}/AdobeGothicStd-Bold.otf`,
+    font: `${FONTS_DIR}/AdobeGothicStd-Bold.otf`,
     fontSize: jobSize,
     colour: JP_RED,
   })
@@ -111,7 +109,7 @@ function drawLanyardText(
     gm: process,
     text: 'THIS PASS IS NOT TRANSFERABLE',
     position: [47, 556],
-    font: `${fontDirectory}/FontsFree-Net-SFCompactDisplay-Regular.ttf`,
+    font: `${FONTS_DIR}/FontsFree-Net-SFCompactDisplay-Regular.ttf`,
     fontSize: 20,
     colour: bgBright ? BLACK : JP_YELLOW,
   })

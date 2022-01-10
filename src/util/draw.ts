@@ -18,13 +18,10 @@ export function drawText({
   position,
   font,
   fontSize,
-  colour
+  colour,
 }: TextOptions): State {
   const [x, y] = position
-  return gm
-    .fill(colour)
-    .font(font, fontSize)
-    .drawText(x, y, text)
+  return gm.fill(colour).font(font, fontSize).drawText(x, y, text)
 }
 
 export function drawTextWithOutline(options: TextOptions): State {
@@ -34,7 +31,7 @@ export function drawTextWithOutline(options: TextOptions): State {
     //[position[0] + 1, position[1]],
     //[position[0], position[1] - 1]
     //[position[0], position[1] + 1]
-    [position[0] + 1, position[1] + 1]
+    [position[0] + 1, position[1] + 1],
   ]
   let oultlineColor = Color(options.colour)
 
@@ -44,11 +41,11 @@ export function drawTextWithOutline(options: TextOptions): State {
     oultlineColor = oultlineColor.darken(0.5)
   }
 
-  _.each(positions, outlinePosition => {
+  _.each(positions, (outlinePosition) => {
     drawText({
       ...options,
       colour: oultlineColor.hex(),
-      position: outlinePosition
+      position: outlinePosition,
     })
   })
 
@@ -60,7 +57,7 @@ export function placeImage({
   filename,
   position,
   size,
-  path
+  path,
 }: {
   gm: State
   filename?: string
@@ -78,7 +75,7 @@ export function placeImage({
 export function drawRectangle({
   gm,
   colour,
-  dimensions
+  dimensions,
 }: {
   gm: State
   colour: string
