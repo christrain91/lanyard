@@ -35,6 +35,7 @@ function drawLanyard(staffMember: StaffMember): gm.State {
 }
 
 function drawLanyardImages(process: gm.State): gm.State {
+  // const [x, y] = LANYARD
   process = drawRectangle({
     gm: process,
     colour: JP_YELLOW,
@@ -45,21 +46,44 @@ function drawLanyardImages(process: gm.State): gm.State {
     gm: process,
     filename: 'ingen.png',
     position: [10, 360],
-    size: [137, 137],
+    size: [110, 110],
   })
+
+  // // CENTER LINE
+  // drawRectangle({
+  //   gm: process,
+  //   colour: '#fff',
+  //   dimensions: [x / 2 - 1, 0, x / 2 + 1, y],
+  // })
+
+  // const INSET = 50
+
+  // // LEFT LINE
+  // drawRectangle({
+  //   gm: process,
+  //   colour: '#fff',
+  //   dimensions: [INSET - 1, 0, INSET + 1, y],
+  // })
+
+  // // RIGHT LINE
+  // drawRectangle({
+  //   gm: process,
+  //   colour: '#fff',
+  //   dimensions: [x - INSET - 1, 0, x - INSET + 1, y],
+  // })
 
   process = placeImage({
     gm: process,
     filename: 'JPLogo.png',
-    position: [-20, -20],
-    size: [440, 330],
+    position: [5, 34],
+    size: [382.5 * 0.92, 294.3 * 0.92],
   })
 
   process = placeImage({
     gm: process,
     filename: 'barcode.png',
-    position: [160, 430],
-    size: [226, 82.5],
+    position: [133, 422],
+    size: [220 * 0.85, 79 * 0.85],
   })
 
   return process
@@ -75,7 +99,6 @@ function drawLanyardText(
   const jobSize = getFontSize(staffMember.job.title.length)
 
   const bgIsRed = bgColour.contrast(Color(JP_RED)) < 1.48
-  const bgBright = bgColour.luminosity() > 0.3
 
   process = drawText({
     gm: process,
@@ -90,7 +113,7 @@ function drawLanyardText(
   process = drawText({
     gm: process,
     text: name,
-    position: [160, 382],
+    position: [133, 382],
     font: `${FONTS_DIR}/AdobeGothicStd-Bold.otf`,
     fontSize: nameSize,
     colour: BLACK,
@@ -99,19 +122,10 @@ function drawLanyardText(
   process = drawText({
     gm: process,
     text: staffMember.job.title,
-    position: [160, 413],
+    position: [133, 413],
     font: `${FONTS_DIR}/AdobeGothicStd-Bold.otf`,
     fontSize: jobSize,
     colour: JP_RED,
-  })
-
-  process = drawText({
-    gm: process,
-    text: 'THIS PASS IS NOT TRANSFERABLE',
-    position: [47, 556],
-    font: `${FONTS_DIR}/FontsFree-Net-SFCompactDisplay-Regular.ttf`,
-    fontSize: 20,
-    colour: bgBright ? BLACK : JP_YELLOW,
   })
 
   return process
@@ -132,17 +146,17 @@ function getFontSize(length: number): number {
     {
       from: 16,
       to: 22,
-      size: 20,
+      size: 18,
     },
     {
       from: 23,
       to: 26,
-      size: 18,
+      size: 16,
     },
     {
       from: 27,
       to: Infinity,
-      size: 16,
+      size: 15,
     },
   ]
 

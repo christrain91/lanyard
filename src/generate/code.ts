@@ -7,7 +7,7 @@ export default function generate(staffMember: StaffMember): Promise<any> {
   const path = `${CODE_DIR}/${staffMember.surname}_${staffMember.firstname}.png`
   return QRCode.toFile(
     path,
-    `http://www.train-wedding.uk/staff/${staffMember.firstname}_${staffMember.surname}`.toLowerCase(),
+    `http://www.train-wedding.uk/login/${staffMember.uuid}`,
     {
       margin: 1,
       width: 300,

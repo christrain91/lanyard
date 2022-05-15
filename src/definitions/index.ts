@@ -1,4 +1,5 @@
 export interface StaffMember {
+  uuid: string
   firstname: string
   surname: string
   job: Job
